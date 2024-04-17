@@ -1,34 +1,24 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Book } from './common/types';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'Hello World';
-  //myVar: number;
-  myVar = 0;
-  myArr = [];
-  myBook: Book;
-  myBooks: Book[];
+  color: String = 'red';
 
-  constructor() {
-    //this.myVar = 0;
-    this.myBook = {
-      id: 1,
-      title: '',
-    };
+  generateRandom(): String {
+    return Math.floor(Math.random() * 255).toString(16);
+  }
 
-    this.myBooks = [
-      {
-        id: 1,
-        title: '',
-      },
-    ];
+  colorHex(): String {
+    return (
+      '#' +
+      this.generateRandom() +
+      this.generateRandom() +
+      this.generateRandom()
+    );
   }
 }
