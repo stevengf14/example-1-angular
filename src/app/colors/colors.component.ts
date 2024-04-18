@@ -9,6 +9,8 @@ import { HelloComponent } from '../hello/hello.component';
   styleUrl: './colors.component.css',
 })
 export class ColorsComponent implements OnInit {
+  localColor: String =
+    '#' + this.generateRandom() + this.generateRandom() + this.generateRandom();
   constructor() {}
 
   ngOnInit(): void {}
@@ -18,11 +20,11 @@ export class ColorsComponent implements OnInit {
   }
 
   colorHex(): String {
-    return (
+    this.localColor =
       '#' +
       this.generateRandom() +
       this.generateRandom() +
-      this.generateRandom()
-    );
+      this.generateRandom();
+    return this.localColor;
   }
 }
